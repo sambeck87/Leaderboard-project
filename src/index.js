@@ -17,6 +17,8 @@ addBtn.addEventListener('click', (e) => {
   warning.classList.add('hide');
   const newScore = new Scores(nameInput.value, scoreInput.value);
   newScore.add();
+  document.getElementById('name').value = '';
+  document.getElementById('score').value = '';
 });
 
 const refreshBtn = document.getElementById('refresh');
