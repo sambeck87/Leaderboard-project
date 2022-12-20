@@ -11,10 +11,7 @@ const Display = async () => {
   }
   let toDisplay = '';
   for (let index = 0; index < allScores.result.length; index += 1) {
-    let background = '';
-    if (index % 2) {
-      background = 'grey';
-    }
+    const background = index % 2 ? 'grey' : 'red';
     toDisplay += `<div class="${background} score_list">${allScores.result[index].user}: ${allScores.result[index].score}</div>`;
   }
   const contScores = document.getElementById('scores');
