@@ -1,32 +1,25 @@
-function save(data) {
-  data = JSON.stringify(data);
-  localStorage.setItem('scores', data);
-}
+const myURLGame = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/mDhWvHDJREqmHvdneZzP/scores/';
 
-function get() {
-  let allScores = localStorage.getItem('scores');
-  allScores = JSON.parse(allScores);
-  if (!allScores) {
+const Display = async () => {
+  let allScores;
+  await fetch(myURLGame)
+    .then((response) => response.json())
+    // eslint-disable-next-line
+    .then((json) => allScores = json);
+  if (!allScores.result[0]) {
     return null;
   }
-  return allScores;
-}
-
-function Display() {
-  const allScores = get();
   let toDisplay = '';
-  if (!allScores) {
-    return;
-  }
-  for (let index = 0; index < allScores.length; index += 1) {
+  for (let index = 0; index < allScores.result.length; index += 1) {
     let background = '';
     if (index % 2) {
       background = 'grey';
     }
-    toDisplay += `<div class="${background} score_list">${allScores[index].name}: ${allScores[index].score}</div>`;
+    toDisplay += `<div class="${background} score_list">${allScores.result[index].user}: ${allScores.result[index].score}</div>`;
   }
   const contScores = document.getElementById('scores');
   contScores.innerHTML = `${toDisplay}`;
-}
+  return 0;
+};
 
-export { save, get, Display };
+export default Display;

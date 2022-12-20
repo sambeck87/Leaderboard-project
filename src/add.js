@@ -1,4 +1,4 @@
-import { save, get } from './save_get.js';
+const myURLGame = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/mDhWvHDJREqmHvdneZzP/scores/';
 
 class Scores {
   constructor(name, score) {
@@ -6,13 +6,18 @@ class Scores {
     this.score = score;
   }
 
-  add() {
-    let scoresArray = get();
-    if (!scoresArray) {
-      scoresArray = [];
-    }
-    scoresArray.push({ index: this.index, name: this.name, score: this.score });
-    save(scoresArray);
+  add = async () => {
+    await fetch(myURLGame, {
+      method: 'POST',
+      body: JSON.stringify({
+        user: this.name,
+        score: this.score,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json());
   }
 }
 
