@@ -1,6 +1,6 @@
 import './style.css';
 import Scores from './add.js';
-import { Display } from './save_get.js';
+import Display from './save_get.js';
 
 Display();
 
@@ -17,5 +17,11 @@ addBtn.addEventListener('click', (e) => {
   warning.classList.add('hide');
   const newScore = new Scores(nameInput.value, scoreInput.value);
   newScore.add();
+  document.getElementById('name').value = '';
+  document.getElementById('score').value = '';
+});
+
+const refreshBtn = document.getElementById('refresh');
+refreshBtn.addEventListener('click', () => {
   Display();
 });
