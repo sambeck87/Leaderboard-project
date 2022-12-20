@@ -1,7 +1,7 @@
-import _ from 'lodash';
 import './style.css';
 import Scores from './add.js';
-import { Display } from './save_get.js'
+import { Display } from './save_get.js';
+
 Display();
 
 const addBtn = document.getElementById('add');
@@ -10,12 +10,12 @@ addBtn.addEventListener('click', (e) => {
   const nameInput = document.getElementById('name');
   const scoreInput = document.getElementById('score');
   const warning = document.getElementById('warning');
-  if(!nameInput.value || !scoreInput.value){
+  if (!nameInput.value || !scoreInput.value) {
     warning.classList.remove('hide');
-    return
+    return;
   }
   warning.classList.add('hide');
   const newScore = new Scores(nameInput.value, scoreInput.value);
   newScore.add();
   Display();
-})
+});

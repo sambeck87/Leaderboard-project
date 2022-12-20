@@ -42,6 +42,8 @@
 
 #cont_add {
   margin: 0 25vw 0 0;
+  display: flex;
+  flex-direction: column;
 }
 
 #scores {
@@ -49,11 +51,6 @@
   width: 100%;
   height: 32vw;
   overflow-y: scroll;
-}
-
-#cont_add {
-  display: flex;
-  flex-direction: column;
 }
 
 #add_subtitle {

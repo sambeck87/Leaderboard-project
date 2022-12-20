@@ -1,19 +1,18 @@
-import {save, get} from './save_get.js'
+import { save, get } from './save_get.js';
 
 class Scores {
-  constructor (name, score) {
+  constructor(name, score) {
     this.name = name;
     this.score = score;
   }
 
   add() {
     let scoresArray = get();
-    if(!scoresArray) {
+    if (!scoresArray) {
       scoresArray = [];
     }
-    scoresArray.push({index: this.index, name: this.name, score: this.score});
+    scoresArray.push({ index: this.index, name: this.name, score: this.score });
     save(scoresArray);
-  
   }
 }
 

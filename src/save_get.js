@@ -1,12 +1,12 @@
 function save(data) {
-  data = JSON.stringify(data)
+  data = JSON.stringify(data);
   localStorage.setItem('scores', data);
 }
 
 function get() {
   let allScores = localStorage.getItem('scores');
   allScores = JSON.parse(allScores);
-  if(!allScores) {
+  if (!allScores) {
     return null;
   }
   return allScores;
@@ -14,19 +14,19 @@ function get() {
 
 function Display() {
   const allScores = get();
-  let toDisplay = ``;
+  let toDisplay = '';
   if (!allScores) {
     return;
   }
-  for (let index = 0; index < allScores.length; index++) {
+  for (let index = 0; index < allScores.length; index += 1) {
     let background = '';
     if (index % 2) {
-      background = 'grey'
+      background = 'grey';
     }
-    toDisplay += `<div class="${background} score_list">${allScores[index].name}: ${allScores[index].score}</div>`
+    toDisplay += `<div class="${background} score_list">${allScores[index].name}: ${allScores[index].score}</div>`;
   }
   const contScores = document.getElementById('scores');
   contScores.innerHTML = `${toDisplay}`;
 }
 
-export {save, get, Display}
+export { save, get, Display };
