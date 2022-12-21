@@ -124,3 +124,54 @@ form {
   font-size: 1.4vw;
   padding: 0.7vw 0 0.7vw 0;
 }
+
+@media screen and (max-width: 768px) {
+  #container {
+    flex-direction: column;
+  }
+
+  #title {
+    font-size: 7vw;
+  }
+
+  .subtitle {
+    font-size: 5vw;
+  }
+
+  #cont_scores {
+    width: 100%;
+    margin-top: 3vw;
+  }
+
+  #scores_header {
+    width: 93%;
+    margin-bottom: 3vw;
+  }
+
+  .btn_style {
+    font-size: 3vw;
+    width: fit-content;
+    height: auto;
+    padding: 1vw;
+  }
+
+  #scores {
+    width: 92%;
+    height: auto;
+    max-height: 50vh;
+  }
+
+  .score_list {
+    font-size: 3vw;
+  }
+
+  #cont_add {
+    margin: 5vw 3vw 0 3vw;
+  }
+
+  .input_style {
+    font-size: 5vw;
+    height: 6vw;
+    margin-bottom: 3vw;
+  }
+}
