@@ -2,7 +2,7 @@ import './style.css';
 import Scores from './add.js';
 import Display from './save_get.js';
 
-Display();
+window.addEventListener('load', Display());
 
 const addBtn = document.getElementById('add');
 addBtn.addEventListener('click', (e) => {
