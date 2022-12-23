@@ -22,16 +22,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]',
-              outputPath: 'images/',
-              useRelativePaht: true,
-            },
-          },
-        ],
+        generator: { filename: './img/[name][ext]' },
       },
     ],
   },
